@@ -18,10 +18,25 @@ axios
     let latestOrder = allOrdersArr[allOrdersArr.length-1];
     let totalPrice = allOrdersArr.reduce((sum, order) => sum + parseFloat(order.price), 0);
 
+    let sortedOrderArr__ClientName = allOrdersArr.sort((a, b) => a.client.localeCompare(b.client));
+    let sortedOrderArr__price = allOrdersArr.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+    let sortedOrderArr__date = allOrdersArr.slice().reverse();
+
     let partedArr = getPartedArr(allOrdersArr);
     getOrders(partedArr[pagintationCounter-1]);
     
-
+    document.getElementById('sort-clientName').addEventListener('click', function() {
+        partedArr = getPartedArr(sortedOrderArr__ClientName);
+        getOrders(partedArr[pagintationCounter-1]);
+    });
+    document.getElementById('sort-price').addEventListener('click', function() {
+        partedArr = getPartedArr(sortedOrderArr__price);
+        getOrders(partedArr[pagintationCounter-1]);
+    });
+    document.getElementById('sort-date').addEventListener('click', function() {
+        partedArr = getPartedArr(sortedOrderArr__date);
+        getOrders(partedArr[pagintationCounter-1]);
+    });
     function getPartedArr(arr) {
         let partedArr = [];
         for (let i = 0; i < arr.length; i += 2) {
@@ -85,4 +100,9 @@ axios
 
 logOut.addEventListener('click', function() {
     window.location.href = '/';
+});
+
+document.querySelector('.open-sort').addEventListener('click', function() {
+    let sortContainer = document.querySelector('.sort-container'); 
+    sortContainer.style.left = (sortContainer.style.left === '0px') ? '-320px' : '0px';
 });

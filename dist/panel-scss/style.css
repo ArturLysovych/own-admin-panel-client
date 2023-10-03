@@ -29,7 +29,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  left: 0;
+  transition: 0.5s;
+  left: -320px;
 }
 .sort-container .sorting {
   width: 320px;
