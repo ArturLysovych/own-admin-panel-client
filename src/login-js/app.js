@@ -30,7 +30,10 @@ form.addEventListener('submit', function(event) {
     .post(`/${formType}-admin`, postingData)
     .then((response) => {
         alert(response.data);
-        if(response.data == 'Successfully login') form.reset();
+        if(response.data == 'Successfully login') {
+            form.reset();
+            window.location.href = `/user?login=${login}&email=${email}&password=${password}`;
+        }
     })
     .catch((error) => {
         console.error(error);
