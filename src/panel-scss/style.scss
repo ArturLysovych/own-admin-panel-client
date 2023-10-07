@@ -28,6 +28,7 @@
     justify-content: center;
     transition: .5s;
     left: -320px;
+    z-index: 3;
     .sorting {
         width: 320px;
         height: 100%;
@@ -127,6 +128,7 @@
                 justify-content: center;
                 align-items: center;
                 gap: 30px;
+                overflow: hidden;
                 .order {
                     width: 95%;
                     height: 210px;
@@ -134,6 +136,9 @@
                     display: flex;
                     align-items: center;
                     justify-content: center;
+                    position: relative;
+                    cursor: pointer;
+                    transition: .2s;
                     .left-part {
                         width: 210px;
                         height: 100%;
@@ -169,6 +174,20 @@
                                 font-weight: 500;
                             }
                         }
+                    }
+                    .delete-order {
+                        width: 250px;
+                        height: 100%;
+                        position: absolute;
+                        right: -275px;
+                        background: #AA3939;
+                        color: #550000;
+                        font-size: 48px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-weight: 700;
+                        cursor: pointer;
                     }
                 }
             }

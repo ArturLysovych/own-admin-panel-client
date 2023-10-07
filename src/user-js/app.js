@@ -119,7 +119,6 @@ function addOrder() {
                 orderArr.splice(index, 1);
                 orderElement.remove();
             }
-            console.log(orderArr);
             totalCosts = orderArr.reduce((acc, item) => acc + parseFloat(item.price), 0);
             totalPrice.innerText = `$${totalCosts}`;
         });
@@ -130,4 +129,9 @@ document.getElementById('orderBtn').addEventListener('click', function() {
     axios.post('/send-order', orderArr)
     orderArr = [];
     orderContainer.innerHTML = '';
+    totalPrice.innerText = '$0';
+});
+
+document.querySelector('.user-image').addEventListener('dblclick', function() {
+    window.location.href = '/log-panel';
 });
