@@ -20,6 +20,7 @@
 
 form {
     width: 300px;
+    height: auto;
     flex-direction: column;
     display: flex;
     align-items: center;
@@ -29,6 +30,7 @@ form {
     background: #AA3939;
     color: #FFAAAA;
     border-radius: 8px;
+    transition: .2s;
     h2 {
         color: #801515;
         text-transform: uppercase;

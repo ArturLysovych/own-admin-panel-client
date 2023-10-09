@@ -21,6 +21,7 @@
 }
 
 form {
+  height: auto;
   width: 300px;
   flex-direction: column;
   display: flex;
@@ -31,6 +32,7 @@ form {
   background: #AA3939;
   color: #FFAAAA;
   border-radius: 8px;
+  transition: 0.2s;
 }
 form h2 {
   color: #801515;
@@ -38,6 +40,7 @@ form h2 {
   user-select: none;
   cursor: pointer;
   transition: 0.2s;
+  text-align: center;
 }
 form h2:hover {
   transform: scaleX(1.05);

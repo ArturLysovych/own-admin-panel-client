@@ -7,6 +7,10 @@ h2.addEventListener('click', function() {
     formType = (currentType === 'login') ? 'register' : 'login';
     this.innerText = `${formType} form`;
     form.setAttribute('data-mode', formType);
+    form.style.transform = 'scale(1.05)';
+    setTimeout(() => {
+        form.style.transform = 'scale(1)';
+    }, 200);
     form.reset();
     if (formType == 'register') {
         form.querySelectorAll('input').forEach((input) => {

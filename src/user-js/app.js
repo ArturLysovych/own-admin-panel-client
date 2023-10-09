@@ -18,18 +18,21 @@ document.getElementById('userName').innerText = myAccount.login;
 let goods = [
     {
         name: 'Humburger',
+        link: 'humburger-link',
         image: './images/humburger.jpg',
         info: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam.',
         price: '8'
     },
     {
         name: 'Hawaiian pizza',
+        link: 'hawaiian-link',
         image: './images/hawaiian-pizza.jpg',
         info: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam.',
         price: '16'
     },
     {
         name: 'Pepperoni pizza',
+        link: 'pepperoni-link',
         image: './images/pepperoni-pizza.jpg',
         info: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam.',
         price: '14'
@@ -52,7 +55,7 @@ for(let el of goods) {
                 <div class="addToCart">
                     <i class="fa-solid fa-cart-shopping"></i>
                 </div>
-                <div class="copy">
+                <div class="copy" id="${el.link}">
                     <i class="fa-solid fa-copy"></i>
                 </div>
             </div>
@@ -134,4 +137,17 @@ document.getElementById('orderBtn').addEventListener('click', function() {
 
 document.querySelector('.user-image').addEventListener('dblclick', function() {
     window.location.href = '/log-panel';
+});
+
+Array.from(document.getElementsByClassName('copy')).forEach(button => {
+    button.addEventListener('click', function() {
+        let textToCopy = window.location.href + '#' + this.id;
+        const tempInput = document.createElement('input');
+        tempInput.value = textToCopy;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        tempInput.setSelectionRange(0, 99999);
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+    });
 });
