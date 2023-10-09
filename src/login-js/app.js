@@ -1,24 +1,26 @@
-let h2 = document.querySelector('h2');
 const form = document.getElementById('form');
-let formType = 'register';
+let formType;
 
-h2.addEventListener('click', function() {
-    let currentType = form.getAttribute('data-mode');
-    formType = (currentType === 'login') ? 'register' : 'login';
-    this.innerText = `${formType} form`;
-    form.setAttribute('data-mode', formType);
-    form.style.transform = 'scale(1.05)';
-    setTimeout(() => {
-        form.style.transform = 'scale(1)';
-    }, 200);
-    form.reset();
-    if (formType == 'register') {
-        form.querySelectorAll('input').forEach((input) => {
-            input.style.display = 'flex';
-        });
-    }
-    if (formType == 'login') {
-        Array.from(form.querySelectorAll('input')).at(-1).style.display = 'none';
+document.addEventListener('click', function (event) {
+    if (event.target.matches('#form h2')) {
+        formType = (form.getAttribute('data-mode') === 'login') ? 'register' : 'login';
+        form.setAttribute('data-mode', formType);
+        event.target.innerText = `${formType.toUpperCase()} FORM`;
+
+        const emailField = (formType === 'register') ? '<input type="email" placeholder="email" name="email" id="email" required>' : '';
+        form.innerHTML = `
+            <h2>${formType.toUpperCase()} FORM</h2>
+            <input type="text" placeholder="login" name="login" id="login" required>
+            <input type="password" placeholder="password" name="password" id="password" required>
+            ${emailField}
+            <button type="submit">Submit</button>
+        `;
+
+        form.style.transform = 'scale(1.05)';
+        setTimeout(() => {
+            form.style.transform = 'scale(1)';
+        }, 200);
+        form.reset();
     }
 });
 
@@ -36,7 +38,7 @@ form.addEventListener('submit', function(event) {
         alert(response.data);
         if(response.data == 'Successfully login') {
             form.reset();
-            window.location.href = `/user?login=${login}&email=${email}&password=${password}`;
+            window.location.href = `/user?login=${login}&password=${password}`;
         }
     })
     .catch((error) => {

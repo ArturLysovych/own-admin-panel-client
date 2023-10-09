@@ -8,13 +8,11 @@
 ::selection {
   background: #550000;
   color: #FFAAAA;
-  text-shadow: 0 0 3px #FFAAAA;
 }
 
 .wrapper {
   width: 100%;
   height: 100vh;
-  background: #550000;
 }
 
 header {
@@ -55,18 +53,17 @@ header .user-image {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  background: #550000;
 }
 .bottomPart .goods-container .card {
   height: 400px;
   width: 300px;
-  background: #AA3939;
+  background: #801515;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 0 5px #AA3939;
-  color: #550000;
+  color: #D46A6A;
   overflow: hidden;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
+  border-radius: 12px;
 }
 .bottomPart .goods-container .card .topPart {
   width: 100%;
@@ -96,13 +93,19 @@ header .user-image {
   height: 100%;
   width: 40px;
   border-radius: 4px;
-  background: #550000;
-  color: #AA3939;
+  background: hsl(0, 50%, 45%);
+  color: #FFAAAA;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 20px;
   cursor: pointer;
+}
+.bottomPart .goods-container .card .bottomPart .buttons .copy {
+  background: #AA3939;
+}
+.bottomPart .goods-container .card .bottomPart .buttons .addToCart {
+  background: #550000;
 }
 .bottomPart .cart {
   width: 20%;

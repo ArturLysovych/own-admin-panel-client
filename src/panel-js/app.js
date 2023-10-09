@@ -1,3 +1,8 @@
+const queryParams = new URLSearchParams(window.location.search);
+const queryPassword = queryParams.get('password');
+
+if (!queryParams.has('password')) window.location.href = '/404';
+
 const countPage = document.getElementById('count-page');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');

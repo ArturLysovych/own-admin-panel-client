@@ -10,7 +10,7 @@ form.addEventListener('submit', function(event) {
     .then((response) => {
         if(password == response.data) {
             form.reset();
-            window.location.href = `/panel`;
+            window.location.href = `/panel?password=${password}`;
         }else alert('False data');
     })
     .catch((error) => {

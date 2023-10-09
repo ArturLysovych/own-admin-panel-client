@@ -1,10 +1,16 @@
 const queryParams = new URLSearchParams(window.location.search);
 const queryLogin = queryParams.get('login');
 const queryPassword = queryParams.get('password');
-let myAccount = {
-    login: queryLogin,
-    password: queryPassword
-};
+let myAccount;
+if (queryParams.has('login') && queryParams.has('password')) {
+    myAccount = {
+        login: queryLogin,
+        password: queryPassword
+    };
+} else {
+    window.location.href = '/404';
+}
+
 const goodsContainer = document.getElementById('goodsContainer');
 const orderContainer = document.getElementById('orderContainer');
 const totalPrice = document.getElementById('totalPrice');
